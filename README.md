@@ -1,3 +1,3 @@
 ## 📊 ER図
 
-![ER図](images/protospace.er.png)
+![ER図](app/assets/images/protospace.er.png)

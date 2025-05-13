@@ -1,0 +1,17 @@
+<%= turbo_frame_tag :_top do %>
+  <%= form_with scope: :user, url: user_session_path, local: true, data: { turbo: false } do |f| %>
+    <div class="field">
+      <%= f.label :email, "メールアドレス" %>
+      <%= f.email_field :email %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password, "パスワード" %>
+      <%= f.password_field :password %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "ログイン", class: :form__btn %>
+    </div>
+  <% end %>
+<% end %>

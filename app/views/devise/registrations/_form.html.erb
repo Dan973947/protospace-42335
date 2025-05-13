@@ -1,0 +1,35 @@
+<%= form_with scope: :user, url: registration_path(:user), local: true, data: { turbo: false } do |f| %>
+  <div class="field">
+    <%= f.label :email, "メールアドレス" %>
+    <%= f.email_field :email %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password, "パスワード" %>
+    <%= f.password_field :password %>
+  </div>
+
+  <div class="field">
+    <%= f.label :name, "名前" %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :profile, "プロフィール" %>
+    <%= f.text_area :profile %>
+  </div>
+
+  <div class="field">
+    <%= f.label :occupation, "職業" %>
+    <%= f.text_field :occupation %>
+  </div>
+
+  <div class="field">
+    <%= f.label :position, "役職" %>
+    <%= f.text_field :position %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "登録", class: :form__btn %>
+  </div>
+<% end %>

@@ -1,6 +1,6 @@
-<%= form_with model: モデル名, local: true do |f|%>
+<%= form_with model: @user, local: true do |f|%>
   <div class="field">
-    <%= f.label :hoge, "プロトタイプの名称" %><br />
+    <%= f.label :title, "プロトタイプの名称" %><br />
     <%= f.text_field :hoge, id:"prototype_title" %>
   </div>
 
