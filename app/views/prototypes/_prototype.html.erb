@@ -1,10 +1,14 @@
 <div class="card">
-  <%= link_to image_tag("プロトタイプの画像", class: :card__img ), root_path%>
-  <div class="card__body">
-    <%= link_to "プロトタイプのタイトル", root_path, class: :card__title%>
-    <p class="card__summary">
-      <%= "プロトタイプのキャッチコピー" %>
-    </p>
-    <%= link_to "by プロトタイプの投稿者名", root_path, class: :card__user %>
-  </div>
+  <% @prototypes.each do|content| %>
+    <div class="card_item">
+      <%= link_to image_tag(content.image, class: :card__img ), prototype_path(content) %>
+      <div class="card__body">
+        <%= link_to content.title, prototype_path(content), class: :card__title%>
+        <p class="card__summary">
+          <%= content.catch_copy %>
+        </p>
+        <%= link_to "by #{content.user.name}", prototype_path(content), class: :card__user %>
+      </div>
+    </div>
+  <% end %>
 </div>
