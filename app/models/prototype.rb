@@ -1,5 +1,7 @@
 class Prototype < ApplicationRecord
+  #ここからアソシエーション
   belongs_to :user
+  has_many :comments, dependent: :destroy
   #Active Storageの記述
   has_one_attached :image
 

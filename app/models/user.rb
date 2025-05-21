@@ -4,12 +4,13 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  #ここからアソシエーション
+  has_many :prototypes
+  has_many :comments
+
   #ここからバリデーション
   validates :name, presence: true
   validates :profile, presence: true
   validates :occupation, presence: true
   validates :position, presence: true
-
-  #ここからアソシエーション
-  has_many :prototypes
 end

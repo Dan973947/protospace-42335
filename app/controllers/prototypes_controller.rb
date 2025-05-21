@@ -1,8 +1,11 @@
 class PrototypesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_prototype, only: [:show, :edit, :update, :destroy]
+  before_action :authorize_user!, only: [:edit, :update, :destroy]
 
   def index
     @prototypes = Prototype.all
+    @user = current_user
   end
 
   def new
@@ -20,6 +23,9 @@ class PrototypesController < ApplicationController
   end
 
   def show
+    @user = current_user
+    @comment = Comment.new
+    @comments = @prototype.comments.includes(:user)
   end
 
   def edit
@@ -42,6 +48,12 @@ class PrototypesController < ApplicationController
 
   def set_prototype
     @prototype = Prototype.find(params[:id])
+  end
+
+  def authorize_user!
+    unless @prototype.user == current_user
+      redirect_to root_path, alert: "不正なアクセスです!"
+    end
   end
 
   def prototype_params
