@@ -23,4 +23,4 @@ production:
   password: <%= ENV["DB_PASSWORD"] %>
   host: <%= ENV["DB_HOST"] %>
   port: 5432
-  database: protospace_42335_production
+  database: <%= ENV["DB_NAME"] %>
