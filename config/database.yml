@@ -2,22 +2,7 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: <%= ENV["DB_USERNAME"] %>
+  username: <%= ENV["DB_USER"] %>
   password: <%= ENV["DB_PASSWORD"] %>
   host: <%= ENV["DB_HOST"] %>
   port: 5432
-
-development:
-  <<: *default
-  database: protospace_42335_development
-
-test:
-  <<: *default
-  database: protospace_42335_test
-
-production:
-  <<: *default
-  database: protospace_42335_production
-  username: <%= ENV["DB_USERNAME"] %>
-  password: <%= ENV["DB_PASSWORD"] %>
-  host: <%= ENV["DB_HOST"] %>
