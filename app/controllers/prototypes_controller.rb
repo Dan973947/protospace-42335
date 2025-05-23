@@ -1,5 +1,5 @@
 class PrototypesController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_prototype, only: [:show, :edit, :update, :destroy]
   before_action :authorize_user!, only: [:edit, :update, :destroy]
 
@@ -16,7 +16,7 @@ class PrototypesController < ApplicationController
     @prototype = Prototype.new(prototype_params)
     @prototype.user = current_user
     if @prototype.save
-      redirect_to @prototype
+      redirect_to root_path
     else
       render :new
     end

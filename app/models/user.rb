@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :comments
 
   #ここからバリデーション
+  validates :email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP, message: "の形式が正しくありません" }
   validates :name, presence: true
   validates :profile, presence: true
   validates :occupation, presence: true
